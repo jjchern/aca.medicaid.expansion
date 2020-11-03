@@ -100,10 +100,9 @@ st_yr_expansion %>%
     geom_tile(colour = "white") +
     labs(x = NULL, y = NULL, fill = "Expansion?",
          title = "Status of State Action on the Medicaid Expansion Decision") +
-    hrbrthemes::theme_ipsum_rc() +
+    hrbrthemes::theme_ipsum_rc(plot_title_size = 15) +
     theme(legend.position = "top") +
-    scale_fill_brewer() +
-    theme(aspect.ratio = 1.618)
+    scale_fill_brewer() 
 ```
 
 <img src="man/figures/README-examples-1.png" width="100%" />
