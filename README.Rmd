@@ -1,5 +1,7 @@
 ---
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -25,5 +27,50 @@ with:
 
 ``` r
 # install.packages("remotes")
+packageVersion("remotes") # Version 2.2.0 required
 remotes::install_github("jjchern/aca.medicaid.expansion")
 ```
+
+# Examples
+
+```{r examples}
+library(tidyverse)
+library(lubridate)
+
+# Data
+aca.medicaid.expansion::status
+
+# Convert the dataset to a state-year panel
+
+add_st_yr_dummy = function(dta, bgn_yr, end_yr) {
+     dta %>%
+         mutate(year = list(bgn_yr:end_yr)) %>%
+         unnest(year) %>%
+         mutate(round_exp_year = round_date(expansion_date, "year")) %>%
+         mutate(round_exp_year = year(round_exp_year)) %>%
+         mutate(expansion = if_else(year < round_exp_year |
+             is.na(round_exp_year), FALSE, TRUE)) %>%
+         select(-round_exp_year)
+}
+
+aca.medicaid.expansion::status %>%
+    add_st_yr_dummy(bgn_yr = 2010, end_yr = 2020) %>% 
+    select(usps, year, expansion) %>% 
+    print() -> st_yr_expansion
+
+# Plot the expansion status for each state
+
+st_yr_expansion %>% 
+    mutate(usps = forcats::fct_rev(usps)) %>% 
+    mutate(year = as.character(year)) %>% 
+    mutate(expansion = if_else(expansion, "Yes", "No")) %>% 
+    ggplot(aes(x = year, y = usps, fill = expansion)) +
+    geom_tile(colour = "white") +
+    labs(x = NULL, y = NULL, fill = "Expansion?",
+         title = "Status of State Action on the Medicaid Expansion Decision") +
+    hrbrthemes::theme_ipsum_rc() +
+    theme(legend.position = "top") +
+    scale_fill_brewer() +
+    theme(aspect.ratio = 1.618)
+```
+
