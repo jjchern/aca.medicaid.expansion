@@ -33,7 +33,7 @@ remotes::install_github("jjchern/aca.medicaid.expansion")
 
 # Examples
 
-```{r examples, fig.width = 6, fig.asp = 1.618, out.width = "85%", fig.align = "center"}
+```{r examples, fig.width = 6, fig.asp = 1.618, out.width = "70%", fig.align = "center"}
 library(tidyverse)
 library(lubridate)
 
