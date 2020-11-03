@@ -66,8 +66,10 @@ st_yr_expansion %>%
     mutate(expansion = if_else(expansion, "Yes", "No")) %>% 
     ggplot(aes(x = year, y = usps, fill = expansion)) +
     geom_tile(colour = "white") +
-    labs(x = NULL, y = NULL, fill = "Expansion?",
-         title = "Status of State Action on the Medicaid Expansion Decision") +
+    labs(x = NULL, y = NULL, fill = "Expanded?",
+         title = "Status of State Action on the Medicaid Expansion Decision",
+         subtitle = "States' decisions as of October 16, 2020",
+         caption = "Source: the Kaiser Family Foundatio") +
     hrbrthemes::theme_ipsum_rc(plot_title_size = 15) +
     theme(legend.position = "top") +
     scale_fill_brewer() 
