@@ -1,0 +1,22 @@
+Package: aca.medicaid.expansion
+Title: An R data package containing the status of state action on the ACA 
+  Medicaid expansion decision
+Version: 0.0.1
+Authors@R: 
+    person(given = "JJ",
+           family = "Chen",
+           role = c("aut", "cre"),
+           email = "jiajia.chern@gmail.com",
+           comment = c(ORCID = "0000-0001-8482-8398"))
+Description: A dataset containing states' decisions about adopting the Medicaid 
+  expansion under the ACA. From the Kaiser Family Foundation.
+License: CC0
+URL: https://github.com/jjchern/aca.medicaid.expansion
+BugReports: 
+    https://github.com/jjchern/aca.medicaid.expansion/issues
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Depends: 
+    R (>= 2.10)
