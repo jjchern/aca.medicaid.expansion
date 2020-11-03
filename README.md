@@ -5,7 +5,8 @@
 
 The package `{aca.medicaid.expansion}` contains a dataset `status`,
 which includes the status of state action on the ACA Medicaid expansion
-decision.
+decision. The first version of the data is from [the Kaiser Family
+Foundation](https://www.kff.org/medicaid/issue-brief/status-of-state-medicaid-expansion-decisions-interactive-map/).
 
 # Installation
 
