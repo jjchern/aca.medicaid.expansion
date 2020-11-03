@@ -105,4 +105,4 @@ st_yr_expansion %>%
     scale_fill_brewer() 
 ```
 
-<img src="man/figures/README-examples-1.png" width="100%" />
+<img src="man/figures/README-examples-1.png" width="85%" style="display: block; margin: auto;" />
