@@ -21,7 +21,7 @@
 #'
 #' # Convert the data to state-year level
 #'
-#' add_st_yr_dummy = function(dta = st_expansion_date, bgn_yr, end_yr) {
+#' add_st_yr_dummy = function(dta, bgn_yr, end_yr) {
 #'      dta %>%
 #'          mutate(year = list(bgn_yr:end_yr)) %>%
 #'          unnest(year) %>%
@@ -38,8 +38,7 @@
 #'
 #' # Convert the data to state-month level
 #'
-#' add_st_yr_mo_dummy = function(dta = st_expansion_date,
-#'     bgn_yr, bgn_mo, end_yr, end_mo) {
+#' add_st_yr_mo_dummy = function(dta, bgn_yr, bgn_mo, end_yr, end_mo) {
 #'
 #'     bgn_dt = paste0(bgn_yr, "/", bgn_mo, "/1")
 #'     end_dt = paste0(end_yr, "/", end_mo, "/1")
